@@ -24,5 +24,5 @@ Amor Panarra is an online bakery with carefully selected and quality products fo
 | PUT          | /productos/crear   | Create form for new product   | :heavy_check_mark: |
 | GET          | /productos/:id     | Render product details   | :heavy_check_mark: |
 | GET          | /productos/:id/editar   | Render edit page form   | :heavy_check_mark: |
-| POST         | /productos/:id/editar   | Handle edit and delete page form   | X |
+| POST         | /productos/:id/editar   | Handle edit and delete page form   | :heavy_check_mark: |
 | DELETE       | /productos/:id/eliminar   | Delete product btn   | :heavy_check_mark: |
