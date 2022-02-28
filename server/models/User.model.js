@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require("mongoose")
 
 
 const userSchema = new Schema(
@@ -20,22 +20,6 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-    },
-    creditcard: {
-      ccholder: {
-        type: String,
-        required: true,
-      },
-      ccnumber: {
-        type: Number,
-        minlength: 16,
-        required: true,
-      },
-      ccexpiration: {
-        type: String,
-        required: true,
-      },
-
     },
 
     address: {
@@ -64,7 +48,7 @@ const userSchema = new Schema(
       country: {
         type: String,
         required: true
-      },
+      }
     },
 
 
