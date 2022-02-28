@@ -13,6 +13,12 @@ const commentSchema = new Schema(
             trim: true
         },
 
+        rating: {
+            type: Number,
+            min: 1.0,
+            max: 5.0,
+        },
+
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'

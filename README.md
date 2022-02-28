@@ -19,10 +19,10 @@ Amor Panarra is an online bakery with carefully selected and quality products fo
 | GET          | /productos/sin-gluten         | List of gluten-free products  |    |
 | GET          | /contacto          | Render contact form   |    |
 | GET          | /contacto          | Handle contact form   |    |
-| GET          | /perfiles          | Render all users's profiles  | U+2705   |
-| POST         | /perfiles          | Handle all users's profiles  | U+2705  |
-| PUT          | /productos/crear   | Create form for new product   | U+2705   |
-| GET          | /productos/:id     | Render product details   |  U+2705  |
-| GET          | /productos/:id/editar   | Render edit page form   |  U+2705  |
-| POST         | /productos/:id/editar   | Handle edit and delete page form   |  U+2705  |
-| DELETE       | /productos/:id/eliminar   | Delete product btn   | U+2705   |
+| GET          | /perfiles          | Render all users's profiles  | :heavy_check_mark: |
+| POST         | /perfiles          | Handle all users's profiles  | :heavy_check_mark: |
+| PUT          | /productos/crear   | Create form for new product   | :heavy_check_mark: |
+| GET          | /productos/:id     | Render product details   | :heavy_check_mark: |
+| GET          | /productos/:id/editar   | Render edit page form   | :heavy_check_mark: |
+| POST         | /productos/:id/editar   | Handle edit and delete page form   | X |
+| DELETE       | /productos/:id/eliminar   | Delete product btn   | :heavy_check_mark: |

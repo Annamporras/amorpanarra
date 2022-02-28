@@ -2,18 +2,20 @@ const { Schema, model } = require("mongoose")
 
 const cartSchema = new Schema({
 
-    quantity: Number,
-
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
 
-    product: {
+    products: [{
         type: Schema.Types.ObjectId,
         ref: 'Product'
-    },
-})
+    }],
+},
+    {
+        timestamps: true,
+    }
+)
 
 const Cart = model("Cart", cartSchema)
 

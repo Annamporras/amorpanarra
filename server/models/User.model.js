@@ -23,13 +23,14 @@ const userSchema = new Schema(
     },
 
     address: {
+
       street: {
-        streetName: {
+        name: {
           type: String,
           required: true
         },
 
-        streetNumber: {
+        number: {
           type: Number,
           required: true
         },
@@ -51,7 +52,6 @@ const userSchema = new Schema(
       }
     },
 
-
     role: {
       type: String,
       enum: ['ADMIN', 'USER'],
@@ -60,7 +60,6 @@ const userSchema = new Schema(
     },
   },
   {
-
     timestamps: true,
   }
 );

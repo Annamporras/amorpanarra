@@ -13,13 +13,13 @@ const productSchema = new Schema(
             default: 'Panes'
         },
         glutenfree: Boolean,
-        rating: {
-            type: Number,
-            min: 1.0,
-            max: 5.0,
-        },
         featured: Boolean,
-    })
+    },
+    {
+        timestamps: true,
+    }
+
+)
 
 const Product = model("Product", productSchema)
 
