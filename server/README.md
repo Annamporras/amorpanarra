@@ -19,10 +19,10 @@ Amor Panarra is an online bakery with carefully selected and quality products fo
 | GET          | /productos/sin-gluten         | List of gluten-free products  |    |
 | GET          | /contacto          | Render contact form   |    |
 | GET          | /contacto          | Handle contact form   |    |
-| GET          | /perfiles          | Render all users's profiles  | :marca_de_verificación_blanca:   |
-| POST         | /perfiles          | Handle all users's profiles  | :marca_de_verificación_blanca:  |
-| PUT          | /productos/crear   | Create form for new product   | :marca_de_verificación_blanca:   |
-| GET          | /productos/:id     | Render product details   |  :marca_de_verificación_blanca:  |
-| GET          | /productos/:id/editar   | Render edit page form   |  :marca_de_verificación_blanca:  |
-| POST         | /productos/:id/editar   | Handle edit and delete page form   |  :marca_de_verificación_blanca:  |
-| DELETE       | /productos/:id/eliminar   | Delete product btn   | :marca_de_verificación_blanca:   |
+| GET          | /perfiles          | Render all users's profiles  | U+2705   |
+| POST         | /perfiles          | Handle all users's profiles  | U+2705  |
+| PUT          | /productos/crear   | Create form for new product   | U+2705   |
+| GET          | /productos/:id     | Render product details   |  U+2705  |
+| GET          | /productos/:id/editar   | Render edit page form   |  U+2705  |
+| POST         | /productos/:id/editar   | Handle edit and delete page form   |  U+2705  |
+| DELETE       | /productos/:id/eliminar   | Delete product btn   | U+2705   |
