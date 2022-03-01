@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Product = require('../models/Product.model')
 
-
+// GET ALL PRODUCTS
 router.get('/getAllProducts', (req, res) => {
 
     Product
@@ -11,6 +11,8 @@ router.get('/getAllProducts', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+
+// GET ONE PRODUCT
 router.get('/getOneProduct/:product_id', (req, res) => {
     const { product_id } = req.params
 
@@ -20,6 +22,8 @@ router.get('/getOneProduct/:product_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+
+// CREATE PRODUCT
 router.post('/createProduct', (req, res) => {   //fileUploader.single('image'), (PONER CUADO INSTALEMOS CLOUDINARY)
     const { name, description, ingredients, price, category, glutenfree, featured } = req.body
 
@@ -29,6 +33,7 @@ router.post('/createProduct', (req, res) => {   //fileUploader.single('image'), 
         .catch(err => res.status(500).json(err))
 })
 
+//EDIT PRODUCT
 router.put('/edit/:product_id', (req, res) => {
     const { product_id } = req.params
     const { name, description, ingredients, price, category, glutenfree, featured } = req.body
@@ -39,6 +44,8 @@ router.put('/edit/:product_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+
+//DELETE PRODUCT
 router.delete('/delete/:product_id', (req, res) => {
     const { product_id } = req.params
 

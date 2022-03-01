@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
 
-
+// GET ALL USERS
 router.get('/getAllUsers', (req, res) => {
 
     User
@@ -11,6 +11,8 @@ router.get('/getAllUsers', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+
+//GET ONE USER
 router.get('/getOneUser/:user_id', (req, res) => {
     const { user_id } = req.params
 
@@ -20,6 +22,8 @@ router.get('/getOneUser/:user_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+
+//EDIT USER
 router.put('/edit/:user_id', (req, res) => {
     const { user_id } = req.params
     const { username, email, phone, name, number, postCode, city, country } = req.body
@@ -40,6 +44,8 @@ router.put('/edit/:user_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+
+//DELETE
 router.delete('/delete/:user_id', (req, res) => {
     const { user_id } = req.params
 
