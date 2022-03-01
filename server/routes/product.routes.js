@@ -20,7 +20,7 @@ router.get('/getOneProduct/:product_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/createProduct', (req, res) => { //fileUploader.single('image'),
+router.post('/createProduct', (req, res) => {   //fileUploader.single('image'), (PONER CUADO INSTALEMOS CLOUDINARY)
     const { name, description, ingredients, price, category, glutenfree, featured } = req.body
 
     Product
@@ -44,6 +44,7 @@ router.delete('/delete/:product_id', (req, res) => {
 
     Product
         .findByIdAndDelete(product_id)
+        .then(deletedProduct => res.json(deletedProduct))  // PONER UN THEN QUE ESCUPA UN MENSAJE DE CONTEXTO EN EL CLIENT o BIEN UN JSON CON LEL PRODUCTO BORRADO
         .catch(err => res.status(500).json(err))
 })
 
