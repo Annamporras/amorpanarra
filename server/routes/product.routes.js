@@ -20,7 +20,7 @@ router.get('/getOneProduct/:product_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/createProduct', fileUploader.single('image'), (req, res) => {
+router.post('/createProduct', (req, res) => { //fileUploader.single('image'),
     const { name, description, ingredients, price, category, glutenfree, featured } = req.body
 
     Product
