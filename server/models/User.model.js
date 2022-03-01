@@ -62,9 +62,6 @@ const userSchema = new Schema(
       default: 'USER',
       required: true,
     },
-    owner: {
-      type: String,
-    }
   },
   {
     timestamps: true,

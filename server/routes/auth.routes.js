@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const {isAuthenticated} = require('../middleware/jwt.middleware')
 const saltRounds = 10
 
-//REGISTER
+//REGISTER (CREATE USER)
 router.post('/signup', (req, res) => {
 
     const { username, email, password, phone, name, number, postCode, city, country } = req.body
@@ -57,12 +57,10 @@ router.post('/signup', (req, res) => {
             console.log(err)
             res.status(500).json({ message: 'Internal server error' })
         })
-
 })
 
 
 //LOGIN
-
 router.post('/login', (req, res) => {
     const { email, password } = req.body
 
@@ -81,9 +79,9 @@ router.post('/login', (req, res) => {
 
             if (bcrypt.compareSync(password, foundUser.password)) {
 
-                const { _id, email, username } = foundUser
+                const { _id, role, username } = foundUser
 
-                const payload = { _id, email, username }
+                const payload = { _id, role, username }
 
                 const authToken = jwt.sign(
                     payload, process.env.TOKEN_SECRET, { algorithm: 'HS256', expiresIn: '6h' }
