@@ -29,13 +29,13 @@ router.put('/edit/:user_id', (req, res) => {
             name,
             number
         },
-        postCode: postCode,
-        city: city,
-        country: country
+        postCode,
+        city,
+        country
     }
 
     User
-        .findByIdAndUpdate(user_id, { username, email, phone, name, number, postCode, city, country }, { new: true })
+        .findByIdAndUpdate(user_id, { username, email, phone, address }, { new: true })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -45,6 +45,7 @@ router.delete('/delete/:user_id', (req, res) => {
 
     User
         .findByIdAndDelete(user_id)
+        .then(res.json({ message: 'Usuario eliminado' }))
         .catch(err => res.status(500).json(err))
 })
 

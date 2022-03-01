@@ -21,20 +21,20 @@ router.get('/getOneProduct/:product_id', (req, res) => {
 })
 
 router.post('/createProduct', (req, res) => {   //fileUploader.single('image'), (PONER CUADO INSTALEMOS CLOUDINARY)
-    const { name, description, ingredients, price, category, glutenfree, featured } = req.body
+    const { name, description, ingredients, price, category, glutenfree, featured, image } = req.body
 
     Product
-        .create({ name, description, ingredients, price, category, glutenfree, featured, image: req.file.path })
+        .create({ name, description, ingredients, price, category, glutenfree, featured, image })  //req.file.path
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
 router.put('/edit/:product_id', (req, res) => {
     const { product_id } = req.params
-    const { name, description, ingredients, price, category, glutenfree, featured } = req.body
+    const { name, description, ingredients, price, category, glutenfree, featured, image } = req.body
 
     Product
-        .findByIdAndUpdate(product_id, { name, description, ingredients, price, category, glutenfree, featured, image: req.file.path }, { new: true })
+        .findByIdAndUpdate(product_id, { name, description, ingredients, price, category, glutenfree, featured, image }, { new: true }) //, image: req.file.path
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -44,7 +44,7 @@ router.delete('/delete/:product_id', (req, res) => {
 
     Product
         .findByIdAndDelete(product_id)
-        .then(deletedProduct => res.json(deletedProduct))  // PONER UN THEN QUE ESCUPA UN MENSAJE DE CONTEXTO EN EL CLIENT o BIEN UN JSON CON LEL PRODUCTO BORRADO
+        .then(res.json({ message: 'Producto eliminado' }))  // PONER UN THEN QUE ESCUPA UN MENSAJE DE CONTEXTO EN EL CLIENT o BIEN UN JSON CON LEL PRODUCTO BORRADO
         .catch(err => res.status(500).json(err))
 })
 
