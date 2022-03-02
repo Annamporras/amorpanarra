@@ -1,0 +1,22 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffc107;
+    color: black;
+    font-size: .6em;
+}
+
+footer ul a{
+    text-decoration: none;
+    color: black;
+    list-style: none;
+}
+
+.subfooter{
+    background-color: #b38b0a;
+    padding: 20px 0 10px;
+    font-size: .8em;
+
+}
+
