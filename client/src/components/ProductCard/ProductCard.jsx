@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './ProductCard.css'
 
 
-const ProductCard = ({ name, image, price, glutenfree }) => {
+const ProductCard = ({ name, image, price, glutenfree, _id }) => {
 
     const addToCart = () => {
         let cart = []
@@ -23,7 +23,7 @@ const ProductCard = ({ name, image, price, glutenfree }) => {
                 <Card.Text>Precio: {price}€</Card.Text>
             
                 <Card.Body>
-                    <Link className='btn btn-primary' to={`/productos/:id`}>Detalles</Link>
+                    <Link className='btn btn-primary' to={`/productos/${_id}`}>Detalles</Link>
                     <Button variant="warning" onClick={addToCart}>Agregar al carrito</Button>
                 </Card.Body>
             </Card>

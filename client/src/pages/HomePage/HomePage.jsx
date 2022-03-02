@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
 import productsService from '../../services/product.service'
 import ProductList from '../../components/ProductList/Product.List'
+import Slider from "../../components/Slider/Slider"
+import './HomePage.css'
+
 
 const HomePage = () => {
 
@@ -19,13 +22,14 @@ const HomePage = () => {
     }
 
     return (
-        <div>
-            <Container>
-                <h1>Catálogo de productos</h1>
+        <section>
+            <Slider/>
+            <Container className="catalog">
+                <h1>Catálogo</h1>
                 <hr/>
                 <ProductList products={products}/>
             </Container>
-        </div>
+        </section>
 
     )
 
