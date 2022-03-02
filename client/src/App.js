@@ -1,10 +1,16 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation/Navigation';
+import HomePage from './pages/HomePage/HomePage';
+import ProductDetailsPage from './pages/ProductDetailsPage/ProductDetails';
+
 
 function App() {
   return (
-    <Navigation />
+    <>
+      <Navigation />
+      <HomePage />
+      <ProductDetailsPage />
+    </>
   );
 }
 
