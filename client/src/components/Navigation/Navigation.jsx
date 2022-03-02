@@ -1,9 +1,10 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
+import './Navigation.css'
 
 const Navigation = () => {
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
+        <Navbar className='navbar' collapseOnSelect expand="lg" bg="warning" variant="light">
             <Container>
                 <Navbar.Brand href="/"> <img
                     src="../../images/Logo.png"
