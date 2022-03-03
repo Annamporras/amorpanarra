@@ -3,7 +3,8 @@ import authService from '../../services/auth.service'
 import { Form, Button, Card, Container } from 'react-bootstrap'
 import './LoginForm.css'
 import { useNavigate } from "react-router-dom"
-
+import {AuthContext} from '../../context/Auth.context'
+import {MessageContext} from '../../context/UserMessage.context'
 
 const LoginForm = () => {
 
@@ -14,8 +15,8 @@ const LoginForm = () => {
 
     const navigate = useNavigate()
 
-    //const { setShowMessage, setMessageInfo } = useContext(MessageContext)
-    //const { storeToken, authenticateUser } = useContext(AuthContext)
+    const { setShowMessage, setMessageInfo } = useContext(MessageContext)
+    const { storeToken, authenticateUser } = useContext(AuthContext)
 
 
     const handleInputChange = e => {
@@ -32,31 +33,39 @@ const LoginForm = () => {
 
         authService
             .login(loginForm)
-            .then(({ data }) => console.log(data))
-
+            .then(({ data }) => {
+                storeToken(data.authToken)
+                authenticateUser()
+                setShowMessage(true)
+                setMessageInfo({ title: 'Éxito', desc: 'Sesión iniciada correctamente' })
+                navigate('/')
+            })
+            .catch(err => console.log(err))
     }
 
     return (
-        <Container className="separate">
-            <Card.Title>Inicio sesión</Card.Title>
-            <Card  style={{ width: '30rem' }}>
+        <Card >
+        <Container>
+            
                 <Form onSubmit={handleSubmit}>
 
-                    <Form.Group className="mb-3">
+                    <Form.Group className="mb-3 mt-3">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" name="email" value={loginForm.email} onChange={handleInputChange} />
                     </Form.Group>
-
                     <Form.Group className="mb-3">
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control type="password" name="password" value={loginForm.password} onChange={handleInputChange} />
                     </Form.Group>
-
-                    <Button variant="warning" type="submit" style={{ width: '100%' }}>Iniciar sesión</Button>
+                    < div className="d-grid gap-2 mb-3" >
+                        <Button variant="warning" type="submit">Iniciar sesión</Button>
+                    </div>
+               
 
                 </Form>
-            </Card>
+            
         </Container>
+        </Card>
     )
 }
 

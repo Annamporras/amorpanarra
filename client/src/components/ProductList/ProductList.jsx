@@ -1,5 +1,6 @@
 import { Row, Col } from 'react-bootstrap'
 import ProductCard from '../ProductCard/ProductCard'
+import './ProductList.css'
 
 const ProductList = ({products}) => {
 
