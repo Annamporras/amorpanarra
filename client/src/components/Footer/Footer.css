@@ -1,9 +1,8 @@
 footer {
     bottom: 0;
     width: 100%;
-    background-color: #ffc107;
     color: black;
-    font-size: .6em;
+   
 }
 
 footer ul a{
@@ -13,9 +12,16 @@ footer ul a{
 }
 
 .subfooter{
-    background-color: #b38b0a;
+    background-color: #ffc107;
     padding: 20px 0 10px;
-    font-size: .8em;
+    font-size: .9em;
 
+}
+
+.footerEnd{
+
+    padding: 2px;
+    text-align: center;
+    font-size: .7em;
 }
 

@@ -25,10 +25,10 @@ router.get('/getOneProduct/:product_id', (req, res) => {
 
 // CREATE PRODUCT
 router.post('/createProduct', (req, res) => {   //fileUploader.single('image'), (PONER CUADO INSTALEMOS CLOUDINARY)
-    const { name, description, ingredients, price, category, glutenfree, featured, image } = req.body
+    const { name, description, ingredients, price, weight, category, glutenfree, featured, image } = req.body
 
     Product
-        .create({ name, description, ingredients, price, category, glutenfree, featured, image })  //req.file.path
+        .create({ name, description, ingredients, price, weight, category, glutenfree, featured, image })  //req.file.path
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -36,10 +36,10 @@ router.post('/createProduct', (req, res) => {   //fileUploader.single('image'), 
 //EDIT PRODUCT
 router.put('/edit/:product_id', (req, res) => {
     const { product_id } = req.params
-    const { name, description, ingredients, price, category, glutenfree, featured, image } = req.body
+    const { name, description, ingredients, price, weight, category, glutenfree, featured, image } = req.body
 
     Product
-        .findByIdAndUpdate(product_id, { name, description, ingredients, price, category, glutenfree, featured, image }, { new: true }) //, image: req.file.path
+        .findByIdAndUpdate(product_id, { name, description, ingredients, price, weight, category, glutenfree, featured, image }, { new: true }) //, image: req.file.path
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

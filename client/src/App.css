@@ -1,1 +1,11 @@
+body{
+   font-family: 'Nunito', sans-serif;
+}
 
+a {
+  text-decoration: none;
+}
+
+.app-container {
+    margin-top: 66px;
+}

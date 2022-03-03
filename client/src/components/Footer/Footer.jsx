@@ -6,19 +6,19 @@ const Footer = () => {
 
     return (
         <footer>
-            <article className='subfooter'>
+            <section className='subfooter'>
                 <ul >
                     <Link to='/nosotros'><li>SOBRE NOSOTROS</li></Link>
                     <br />
                     <Link to='/contacto'><li>CONTACTO</li></Link>
                 </ul>
 
-            </article>
+            </section>
 
-            <hr />
-            <article className='footerEnd'>
-                <p>Developed by Ernesto & Anna</p>
-            </article>
+
+            <section className='footerEnd' style={{ backgroundColor: 'rgb(179, 139, 10)' }}>
+                &copy; {new Date().getFullYear()} Copyright:{' '}  Developed by Ernesto & Anna
+            </section>
         </footer >
     )
 }
