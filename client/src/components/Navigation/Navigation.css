@@ -8,3 +8,8 @@
 .modal {
   z-index: 10000;
 }
+
+.nav-link{
+  text-decoration: none;
+  color: #212529
+}

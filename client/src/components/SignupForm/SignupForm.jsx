@@ -74,7 +74,7 @@ const SignupForm = () => {
                         <Col>
                             <Form.Group className="mb-3" controlId="name" >
                                 <Form.Label>Calle:</Form.Label>
-                                <Form.Control type="number" value={name} onChange={handleInputChange} name='name' />
+                                <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
                             </Form.Group>
                         </Col>
                         <Col>
@@ -86,9 +86,9 @@ const SignupForm = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <Form.Group className="mb-3" controlId="postalCode" >
+                            <Form.Group className="mb-3" controlId="postCode" >
                                 <Form.Label>Código Postal:</Form.Label>
-                                <Form.Control type="number" value={postCode} onChange={handleInputChange} name='postalCode' />
+                                <Form.Control type="number" value={postCode} onChange={handleInputChange} name='postCode' />
                             </Form.Group>
                         </Col>
                         <Col>

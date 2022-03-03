@@ -13,6 +13,7 @@ function App() {
       <div className='app-container'>
         <AppRoutes />
       </div>
+
       <Footer />
 
     </div>

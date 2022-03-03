@@ -1,0 +1,7 @@
+.sliderSize{
+    height: 500px;
+}
+.sliderSize img{
+height: 500px;
+object-fit: cover;
+}
