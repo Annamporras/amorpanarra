@@ -11,6 +11,7 @@ function App() {
       <Navigation />
 
       <AppRoutes />
+    
 
       <Footer />
 
