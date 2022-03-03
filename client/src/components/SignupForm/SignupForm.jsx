@@ -50,11 +50,11 @@ const SignupForm = () => {
 
 
     return (
-        <Container>
-            <Card>
-                <Card.Title>Registro</Card.Title>
+        <Card>
+            <Container>
+
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="username" >
+                    <Form.Group className="mb-3 mt-3" controlId="username" >
                         <Form.Label>Username:</Form.Label>
                         <Form.Control type="text" value={username} onChange={handleInputChange} name='username' />
                     </Form.Group>
@@ -104,13 +104,13 @@ const SignupForm = () => {
                             </Form.Group>
                         </Col>
                     </Row>
-
-                    < div className="d-grid gap-2" >
-                        <Button variant="warning" type="submit">Enviar</Button>
+                    < div className="d-grid gap-2 mb-3" >
+                        <Button variant="warning" type="submit">Completar registro</Button>
                     </div>
                 </Form>
-            </Card>
-        </Container>
+
+            </Container>
+        </Card>
     )
 }
 

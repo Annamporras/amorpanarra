@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
 import productsService from '../../services/product.service'
-import ProductList from '../../components/ProductList/Product.List'
+import ProductList from '../../components/ProductList/ProductList'
 import Slider from "../../components/Slider/Slider"
 import './HomePage.css'
 

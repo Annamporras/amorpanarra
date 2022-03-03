@@ -15,7 +15,7 @@ const ProductCard = ({ name, image, price, glutenfree, _id }) => {
         <article>
 
             <Card className='productCard' style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={image} />
+                <Card.Img className='productImage' variant="top" src={image} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                 </Card.Body>
