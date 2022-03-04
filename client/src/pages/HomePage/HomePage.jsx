@@ -4,6 +4,7 @@ import productsService from '../../services/product.service'
 import ProductList from '../../components/ProductList/ProductList'
 import Slider from "../../components/Slider/Slider"
 import './HomePage.css'
+import LoadingSpinner from "../../components/Spinner/Spinner"
 
 
 const HomePage = () => {
@@ -23,11 +24,11 @@ const HomePage = () => {
 
     return (
         <section>
-            <Slider/>
+            <Slider />
             <Container className="catalog">
                 <h1>Catálogo</h1>
-                <hr/>
-                <ProductList products={products}/>
+                <hr />
+                {!products.length ? <LoadingSpinner /> : <ProductList products={products} />}
             </Container>
         </section>
 

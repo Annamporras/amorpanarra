@@ -19,7 +19,7 @@ function AuthProviderWrapper(props) {
     }
 
     const getToken = () => {
-        localStorage.getItem("authToken")
+        return localStorage.getItem("authToken")
     }
 
 

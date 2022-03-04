@@ -2,11 +2,19 @@ import axios from 'axios'
 
 class ProductsService {
     constructor() {
+
         this.api = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/products` })
 
+        this.api.interceptors.request.use((config) => {
 
-// AQUI VA EL INTECEPTOOOOOOOOOOOOORRRRR
+            const storedToken = localStorage.getItem("authToken")
 
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
     }
 
     getAllProducts = () => {
@@ -21,7 +29,7 @@ class ProductsService {
         return this.api.post(`/createProduct`, product)
     }
 
-    editProduct = product_id =>{
+    editProduct = product_id => {
         return this.api.put('/edit/:product_id', product_id)
     }
 

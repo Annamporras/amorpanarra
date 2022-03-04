@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { Toast } from 'react-bootstrap'
 import { MessageContext } from '../../context/UserMessage.context'
+import { Toast } from 'react-bootstrap'
 
 const UserMessage = () => {
 
@@ -8,7 +8,7 @@ const UserMessage = () => {
 
 
     return (
-        <Toast onClose={() => setShowMessage(false)} show={showMessage} delay={3000} autohide style={{ position: 'fixed', left: 10, top: 300 }}>
+        <Toast onClose={() => setShowMessage(false)} show={showMessage} delay={3000} autohide style={{ position: 'fixed', left: 10, bottom: 10 }}>
             <Toast.Header>
                 <strong className="me-auto">{messageInfo.title}</strong>
             </Toast.Header>

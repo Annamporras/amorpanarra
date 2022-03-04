@@ -41,13 +41,13 @@ const ProductDetailsPage = () => {
 
                         <Col><Card.Body>
                             <Card.Title><h1>{name}</h1></Card.Title>
+                            <Card.Title>Descripción</Card.Title>
+                            <hr />
+                            <Card.Text >{description}</Card.Text>
                         </Card.Body>
                         </Col>
                         <Col><Card.Img variant="top" src={image} /></Col>
                         <Card.Body>
-                            <Card.Title>Descripción</Card.Title>
-                            <hr />
-                            <Card.Text>{description}</Card.Text>
                             <Card.Title>Ingredientes</Card.Title>
                             <hr />
                             <Card.Text>{ingredients}</Card.Text>
@@ -57,7 +57,7 @@ const ProductDetailsPage = () => {
                             <Card.Title>Información adicional</Card.Title>
                             <hr />
                             <Card.Text>Sin gluten: {glutenfree}</Card.Text>
-                            <Card.Text>Peso: {weight}</Card.Text>
+                            <Card.Text>Peso: {weight} g</Card.Text>
                             <Card.Text>Destacado: {featured}</Card.Text>
                         </Card.Body>
                     </Row>
