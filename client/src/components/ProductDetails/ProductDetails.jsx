@@ -2,46 +2,21 @@ import { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom'
 import productService from "../../services/product.service"
 import { Card, Button, Row, Col, Container } from 'react-bootstrap'
-import './ProductDetails.css'
 
 
-const ProductDetailsPage = () => {
 
-    const [productDetails, setProductDetails] = useState({})
-    const [isloading, setisLoading] = useState(true)
+const ProductDetails = ({ name, description, image, ingredients, category, weight, glutenfree, featured }) => {
+
     const { product_id } = useParams()
-    const { name, description, image, ingredients, category, weight, glutenfree, featured } = productDetails
-
-
-    useEffect(() => {
-        productService
-            .getOneProduct(product_id)
-            .then(({ data }) => {
-                setProductDetails(data)
-                setisLoading(false)
-            })
-            .catch(err => console.log(err))
-
-    }, [])
-
-    // const addToCart = () => {
-    //     let cart = []
-    //     //función para agregar al Cart
-    // }
 
     return (
-
-        <>
-
-            {!isloading &&
-
-                <Container className="prueba">
+                <Container>
                     <Row>
 
                         <Col>
-                        <Card.Body>
-                            <Card.Title><h1>{name}</h1></Card.Title>
-                        </Card.Body>
+                            <Card.Body>
+                                <Card.Title><h1>{name}</h1></Card.Title>
+                            </Card.Body>
                         </Col>
                         <Col><Card.Img variant="top" src={image} /></Col>
                         <Card.Body>
@@ -61,14 +36,11 @@ const ProductDetailsPage = () => {
                             <Card.Text>Destacado: {featured}</Card.Text>
                         </Card.Body>
                     </Row>
-                    {/* <Card.Body>
-                        <Button variant="warning" onClick={addToCart}>Agregar al carrito</Button>
-                    </Card.Body> */}
+                    <Card.Body>
+                  
+                    </Card.Body>
                 </Container>
-            }
-
-        </>
     )
 }
 
-export default ProductDetailsPage
+export default ProductDetails

@@ -48,7 +48,7 @@ const Navigation = () => {
                             :
                             <>
                                 <NavLink to="/perfil">
-                                    <Nav.Link as='span' >Hola {user.username}!</Nav.Link>
+                                    <Nav.Link as='span' >Hola {user?.username}!</Nav.Link>
                                 </NavLink>
 
 

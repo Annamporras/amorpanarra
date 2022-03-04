@@ -25,7 +25,7 @@ const HomePage = () => {
         <section>
             <Slider/>
             <Container className="catalog">
-                <h1>Catálogo</h1>
+                <h1>Productos</h1>
                 <hr/>
                 <ProductList products={products}/>
             </Container>
