@@ -3,8 +3,9 @@ import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { MessageContext } from '../../context/UserMessage.context'
 import usersService from '../../services/user.service'
+import './UserCard.css'
 
-const UserCard = ({ username, email, role, phone, owner, _id }) => {
+const UserCard = ({ username, userlastname, email, role, phone, owner, _id }) => {
 
     const { setShowMessage, setMessageInfo } = useContext(MessageContext)
 
@@ -22,10 +23,12 @@ const UserCard = ({ username, email, role, phone, owner, _id }) => {
 
         <article>
 
-            <Card style={{ width: '18rem' }}>
+            <Card className='userCard' style={{ width: '18rem' }}>
                 <Card.Body>
-                    <Card.Title>{username}</Card.Title>
+                    <Card.Title>{username} {userlastname}</Card.Title>
                     <Card.Subtitle>{email}</Card.Subtitle>
+                    <hr/>
+                    <Card.Subtitle>{role}</Card.Subtitle>
                 </Card.Body>
                 <Card.Body>
                     <Link className='btn btn-warning' to={`/perfiles/${_id}`}>Detalles</Link>
