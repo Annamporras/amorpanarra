@@ -9,7 +9,6 @@ const SignupForm = () => {
 
     const [signupData, setSignupData] = useState({
         username: '',
-        userlastname: '',
         email: '',
         password: '',
         phone: '',
@@ -24,10 +23,9 @@ const SignupForm = () => {
         }
     })
 
-    const { username, userlastname, email, password, phone, name, number, postCode, city, country } = signupData
+    const { username, email, password, phone, name, number, postCode, city, country } = signupData
 
     const { setMessageInfo, setShowMessage } = useContext(MessageContext)
-
     const handleInputChange = e => {
         const { name, value } = e.target
         setSignupData({
@@ -56,20 +54,10 @@ const SignupForm = () => {
             <Container>
 
                 <Form onSubmit={handleSubmit}>
-                    <Row>
-                        <Col>
-                            <Form.Group className="mb-3 mt-3" controlId="username" >
-                                <Form.Label>Nombre:</Form.Label>
-                                <Form.Control type="text" value={username} onChange={handleInputChange} name='username' />
-                            </Form.Group>
-                        </Col>
-                        <Col>
-                            <Form.Group className="mb-3 mt-3" controlId="userlastname" >
-                                <Form.Label>Apellido:</Form.Label>
-                                <Form.Control type="text" value={userlastname} onChange={handleInputChange} name='userlastname' />
-                            </Form.Group>
-                        </Col>
-                    </Row>
+                    <Form.Group className="mb-3 mt-3" controlId="username" >
+                        <Form.Label>Username:</Form.Label>
+                        <Form.Control type="text" value={username} onChange={handleInputChange} name='username' />
+                    </Form.Group>
                     <Form.Group className="mb-3" controlId="description" >
                         <Form.Label>Email:</Form.Label>
                         <Form.Control type='email' value={email} onChange={handleInputChange} name='email' />
@@ -86,13 +74,13 @@ const SignupForm = () => {
                         <Col>
                             <Form.Group className="mb-3" controlId="name" >
                                 <Form.Label>Calle:</Form.Label>
-                                <Form.Control type="text" value={name || ''} onChange={handleInputChange} name='name' />
+                                <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
                             </Form.Group>
                         </Col>
                         <Col>
                             <Form.Group className="mb-3" controlId="number" >
                                 <Form.Label>Número:</Form.Label>
-                                <Form.Control type="number" value={number || ''} onChange={handleInputChange} name='number' />
+                                <Form.Control type="number" value={number} onChange={handleInputChange} name='number' />
                             </Form.Group>
                         </Col>
                     </Row>
@@ -100,19 +88,19 @@ const SignupForm = () => {
                         <Col>
                             <Form.Group className="mb-3" controlId="postCode" >
                                 <Form.Label>Código Postal:</Form.Label>
-                                <Form.Control type="number" value={postCode || ''} onChange={handleInputChange} name='postCode' />
+                                <Form.Control type="number" value={postCode} onChange={handleInputChange} name='postCode' />
                             </Form.Group>
                         </Col>
                         <Col>
                             <Form.Group className="mb-3" controlId="city" >
                                 <Form.Label>Ciudad:</Form.Label>
-                                <Form.Control type="text" value={city || ''} onChange={handleInputChange} name='city' />
+                                <Form.Control type="text" value={city} onChange={handleInputChange} name='city' />
                             </Form.Group>
                         </Col>
                         <Col>
                             <Form.Group className="mb-3" controlId="country" >
                                 <Form.Label>País:</Form.Label>
-                                <Form.Control type="text" value={country || ''} onChange={handleInputChange} name='country' />
+                                <Form.Control type="text" value={country} onChange={handleInputChange} name='country' />
                             </Form.Group>
                         </Col>
                     </Row>
