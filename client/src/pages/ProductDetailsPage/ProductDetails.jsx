@@ -24,22 +24,22 @@ const ProductDetailsPage = () => {
 
     }, [])
 
-    const addToCart = () => {
-        let cart = []
-        //función para agregar al Cart
-    }
+    // const addToCart = () => {
+    //     let cart = []
+    //     //función para agregar al Cart
+    // }
 
     return (
 
         <>
-
 
             {!isloading &&
 
                 <Container className="prueba">
                     <Row>
 
-                        <Col><Card.Body>
+                        <Col>
+                        <Card.Body>
                             <Card.Title><h1>{name}</h1></Card.Title>
                             <Card.Title>Descripción</Card.Title>
                             <hr />
@@ -61,9 +61,9 @@ const ProductDetailsPage = () => {
                             <Card.Text>Destacado: {featured}</Card.Text>
                         </Card.Body>
                     </Row>
-                    <Card.Body>
+                    {/* <Card.Body>
                         <Button variant="warning" onClick={addToCart}>Agregar al carrito</Button>
-                    </Card.Body>
+                    </Card.Body> */}
                 </Container>
             }
 

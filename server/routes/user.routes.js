@@ -6,7 +6,7 @@ router.get('/getAllUsers', (req, res) => {
 
     User
         .find()
-        .select('username email role phone owner')
+        .select('username email role phone')
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

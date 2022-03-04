@@ -8,11 +8,11 @@ import { AuthProviderWrapper } from './context/Auth.context';
 
 ReactDOM.render(
   <Router>
-    <AuthProviderWrapper>
-      <MessageProviderWrapper>
+    <MessageProviderWrapper>
+      <AuthProviderWrapper>
         <App />
-      </MessageProviderWrapper>
-    </AuthProviderWrapper>
+      </AuthProviderWrapper>
+    </MessageProviderWrapper>
   </Router>,
   document.getElementById('root')
 )
