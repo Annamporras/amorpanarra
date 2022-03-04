@@ -16,7 +16,7 @@ const Navigation = () => {
     const handleModalClose = () => setShowModal(false)
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
-    console.log(user)
+
 
 
     return (
@@ -60,13 +60,13 @@ const Navigation = () => {
                                 </NavLink>
 
 
-                                <Nav.Link as='span' onClick={logOutUser}>Cerrar sesión</Nav.Link>
+                                <Nav.Link as='span' onClick={logOutUser} style={{ cursor: 'pointer' }}>Cerrar sesión</Nav.Link>
                             </>
                         }
 
-                        <NavLink to="/carrito">
+                        <NavLink to="/detalles-pedido">
                             <Nav.Link eventKey={2} as='span'>
-                                Logo carrito
+                                <img src='https://res.cloudinary.com/dabjtydsw/image/upload/v1646412222/Amor%20Panarra/shoppingcart_77968_lfokg5.png' />
                             </Nav.Link>
                         </NavLink>
 

@@ -15,10 +15,10 @@ function ProductProviderWrapper(props) {
             .then(({ data }) => setProducts(data))
             .catch(err => console.log(err))
     }
-
-    const addToCart = (anna) => {
-        setShoppingList([...products, anna])
+    const addToCart = (item) => {
+        setShoppingList([...shoppingList, item])
     }
+
 
     return (
         <ProductsContext.Provider value={{ loadProducts, products, addToCart, shoppingList }}>

@@ -11,7 +11,7 @@ function ShoppingCart() {
     }, [shoppingList])
 
     return (
-        <div>ShoppingCart</div>
+        <div>{numberOfItems}</div>
     )
 }
 
