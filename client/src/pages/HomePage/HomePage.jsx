@@ -1,26 +1,22 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Container } from "react-bootstrap"
 import productsService from '../../services/product.service'
 import ProductList from '../../components/ProductList/ProductList'
 import Slider from "../../components/Slider/Slider"
 import './HomePage.css'
 import LoadingSpinner from "../../components/Spinner/Spinner"
+import { ProductsContext } from "../../context/Products.context"
 
 
 const HomePage = () => {
 
-    const [products, setProducts] = useState([])
+    const { loadProducts, products } = useContext(ProductsContext)
 
     useEffect(() => {
         loadProducts()
     }, [])
 
-    const loadProducts = () => {
-        productsService
-            .getAllProducts()
-            .then(({ data }) => setProducts(data))
-            .catch(err => console.log(err))
-    }
+
 
     return (
         <section>

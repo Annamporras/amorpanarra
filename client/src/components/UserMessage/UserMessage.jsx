@@ -4,7 +4,7 @@ import { Toast } from 'react-bootstrap'
 
 const UserMessage = () => {
 
-    const { showMessage, setShowMessage, messageInfo } = useContext(MessageContext)
+    const { setShowMessage, showMessage, messageInfo } = useContext(MessageContext)
 
 
     return (

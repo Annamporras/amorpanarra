@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import { Form, Row, Col, Button, Container, Card } from 'react-bootstrap'
 import authService from "../../services/auth.service"
 import { MessageContext } from "../../context/UserMessage.context"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -22,10 +23,11 @@ const SignupForm = () => {
             country: ''
         }
     })
-
+    const navigate = useNavigate()
     const { username, email, password, phone, name, number, postCode, city, country } = signupData
 
     const { setMessageInfo, setShowMessage } = useContext(MessageContext)
+
     const handleInputChange = e => {
         const { name, value } = e.target
         setSignupData({
@@ -42,7 +44,7 @@ const SignupForm = () => {
             .then(({ data }) => {
                 setShowMessage(true)
                 setMessageInfo({ title: 'Perfecto!', desc: 'Te has registrado correctamente. Por favor inicia sesión' })
-
+                navigate('/inicio-sesion')
             })
             .catch(err => console.log(err))
     }

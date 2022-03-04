@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
+import { ProductsContext } from '../../context/Products.context'
 import { MessageContext } from '../../context/UserMessage.context'
 import productsService from '../../services/product.service'
 import uploadService from '../../services/upload.service'
@@ -52,6 +53,7 @@ const NewProductForm = ({ closeModal }) => {
             .catch(err => console.log(err))
     }
 
+    const { loadProducts } = useContext(ProductsContext)
     const { setShowMessage, setMessageInfo } = useContext(MessageContext)
 
     const handleSubmit = e => {
@@ -62,6 +64,7 @@ const NewProductForm = ({ closeModal }) => {
             .then(({ data }) => {
                 setShowMessage(true)
                 setMessageInfo({ title: 'Perfecto!', desc: 'Has creado un nuevo producto' })
+                loadProducts()
                 closeModal()
             })
             .catch(err => console.log(err))
@@ -92,7 +95,7 @@ const NewProductForm = ({ closeModal }) => {
                 <Col>
                     <Form.Group className="mb-3" controlId="weight" >
                         <Form.Label>Peso:</Form.Label>
-                        <Form.Control type="number" value={weight} onChange={handleInputChange} name='weight' />
+                        <Form.Control type="number" value={weight || ''} onChange={handleInputChange} name='weight' />
                     </Form.Group>
                 </Col>
             </Row>
