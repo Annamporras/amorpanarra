@@ -8,7 +8,7 @@ const saltRounds = 10
 //REGISTER (CREATE USER)
 router.post('/signup', (req, res) => {
 
-    const { username, email, password, phone, name, number, postCode, city, country } = req.body
+    const { username, userlastname, email, password, phone, name, number, postCode, city, country } = req.body
 
     const address = {
         street: {
@@ -20,7 +20,7 @@ router.post('/signup', (req, res) => {
         country: country
     }
 
-    if (email === '' || password === '' || username === '') {
+    if (email === '' || password === '' || username === '' || userlastname === '') {
         res.status(400).json({ message: "Por favor escriba el email, password y nombre de usuario" })
         return
     }
@@ -44,12 +44,12 @@ router.post('/signup', (req, res) => {
             const salt = bcrypt.genSaltSync(saltRounds)
             const hashedPassword = bcrypt.hashSync(password, salt)
 
-            return User.create({ username, email, phone, address, password: hashedPassword })
+            return User.create({ username, userlastname, email, phone, address, password: hashedPassword })
         })
         .then((createdUser) => {
-            const { _id, username, email, phone, address } = createdUser
+            const { _id, username, userlastname, email, phone, address } = createdUser
 
-            const user = { _id, username, email, phone, address }
+            const user = { _id, username, userlastname, email, phone, address }
 
             res.status(201).json({ user })
         })

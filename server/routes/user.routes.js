@@ -6,7 +6,7 @@ router.get('/getAllUsers', (req, res) => {
 
     User
         .find()
-        .select('username email role phone')
+        .select('username userlastname email role phone')
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -26,7 +26,7 @@ router.get('/getOneUser/:user_id', (req, res) => {
 //EDIT USER
 router.put('/edit/:user_id', (req, res) => {
     const { user_id } = req.params
-    const { username, email, phone, name, number, postCode, city, country } = req.body
+    const { username, userlastname, email, phone, name, number, postCode, city, country } = req.body
 
     const address = {
         street: {
@@ -39,7 +39,7 @@ router.put('/edit/:user_id', (req, res) => {
     }
 
     User
-        .findByIdAndUpdate(user_id, { username, email, phone, address }, { new: true })
+        .findByIdAndUpdate(user_id, { username, userlastname, email, phone, address }, { new: true })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
