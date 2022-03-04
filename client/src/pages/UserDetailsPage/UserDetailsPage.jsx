@@ -5,8 +5,6 @@ import usersService from "../../services/user.service"
 import { MessageContext } from "../../context/UserMessage.context"
 import UserDetails from "../../components/UserDetails/UserDetails"
 
-
-
 const UserDetailsPage = () => {
 
     const [userDetails, setUserDetails] = useState({})
@@ -39,7 +37,7 @@ const UserDetailsPage = () => {
     return (
         <>
             {!isloading &&
-                <Container className="prueba">
+                <Container>
 
                     <UserDetails userDetails={userDetails} />
 
