@@ -3,14 +3,15 @@ import { useParams } from 'react-router-dom'
 import { Card, Button, Row, Col, Container } from 'react-bootstrap'
 import usersService from "../../services/user.service"
 import { MessageContext } from "../../context/UserMessage.context"
+import UserDetails from "../../components/UserDetails/UserDetails"
+
+
 
 const UserDetailsPage = () => {
 
     const [userDetails, setUserDetails] = useState({})
     const [isloading, setisLoading] = useState(true)
     const { user_id } = useParams()
-    const { username, email, phone, address, role, _id } = userDetails
-
 
     useEffect(() => {
         usersService
@@ -27,7 +28,7 @@ const UserDetailsPage = () => {
 
     const deleteProfile = () => {
         usersService
-            .deleteUser(_id)
+            .deleteUser(user_id)
             .then(() => {
                 setShowMessage(true)
                 setMessageInfo({ title: 'Hecho!', desc: 'Usuario eliminado' })
@@ -37,30 +38,16 @@ const UserDetailsPage = () => {
 
     return (
         <>
-
             {!isloading &&
                 <Container className="prueba">
 
-                    <Card.Body>
-                        <Card.Title><h1>{username}</h1></Card.Title>
-                    </Card.Body>
-
-                    <Card.Body>
-                        <hr />
-                        <Card.Title>Contacto</Card.Title>
-                        <Card.Text>Teléfono: {phone}</Card.Text>
-                        <Card.Text>email: {email}</Card.Text>
-                        <hr />
-                        <Card.Title>Dirección</Card.Title>
-                        <Card.Text>Calle {address.street.name} {address.street.number}, {address.postCode} {address.city}, {address.country}</Card.Text>
-                        <hr />
-
-                    </Card.Body>
+                    <UserDetails userDetails={userDetails} />
 
                     <Card.Body>
                         {/* BOTÓN DE EDITAR */}
                         <Button variant="danger" onClick={deleteProfile}>Eliminar</Button>
                     </Card.Body>
+
                 </Container>
             }
         </>
