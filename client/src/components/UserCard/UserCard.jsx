@@ -5,10 +5,10 @@ import { MessageContext } from '../../context/UserMessage.context'
 import usersService from '../../services/user.service'
 import './UserCard.css'
 
-const UserCard = ({ username, userlastname, email, role, phone, owner, _id }) => {
+const UserCard = ({ username, userlastname, email, role, _id }) => {
 
     const { setShowMessage, setMessageInfo } = useContext(MessageContext)
-
+console.log(_id)
     const deleteProfile = () => {
         usersService
             .deleteUser(_id)

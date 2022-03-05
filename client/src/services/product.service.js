@@ -30,11 +30,11 @@ class ProductsService {
     }
 
     editProduct = product_id => {
-        return this.api.put('/edit/:product_id', product_id)
+        return this.api.put(`/edit/${product_id}`)
     }
 
     deleteProduct = product_id => {
-        return this.api.delete('/delete/:product_id', product_id)
+        return this.api.delete(`/delete/${product_id}`)
     }
 }
 const productsService = new ProductsService()
