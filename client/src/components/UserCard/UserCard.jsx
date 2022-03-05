@@ -5,10 +5,10 @@ import { MessageContext } from '../../context/UserMessage.context'
 import usersService from '../../services/user.service'
 import './UserCard.css'
 
-const UserCard = ({ username, userlastname, email, role, phone, owner, _id }) => {
+const UserCard = ({ username, userlastname, email, role, _id }) => {
 
     const { setShowMessage, setMessageInfo } = useContext(MessageContext)
-
+console.log(_id)
     const deleteProfile = () => {
         usersService
             .deleteUser(_id)
@@ -32,7 +32,7 @@ const UserCard = ({ username, userlastname, email, role, phone, owner, _id }) =>
                 </Card.Body>
                 <Card.Body>
                     <Link className='btn btn-warning' to={`/perfiles/${_id}`}>Detalles</Link>
-                    <Button variant="danger" onClick={deleteProfile}>Eliminar</Button> 
+                    <Button variant="danger" onClick={() => deleteProfile()}>Eliminar</Button> 
                 </Card.Body>
             </Card>
 

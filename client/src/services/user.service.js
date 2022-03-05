@@ -25,11 +25,11 @@ class UsersService {
     }
 
     editUser = user_id => {
-        return this.api.put('/edit/:user_id', user_id)
+        return this.api.put(`/edit/${user_id}`)
     }
 
     deleteUser = user_id => {
-        return this.api.delete('/delete/:user_id', user_id)
+        return this.api.delete(`/delete/${user_id}`)
     }
 }
 const usersService = new UsersService()

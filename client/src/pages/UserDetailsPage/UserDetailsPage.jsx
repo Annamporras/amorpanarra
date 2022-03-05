@@ -43,7 +43,7 @@ const UserDetailsPage = () => {
 
                     <Card.Body>
                         {/* BOTÓN DE EDITAR */}
-                        <Button variant="danger" onClick={deleteProfile}>Eliminar</Button>
+                        <Button variant="danger" onClick={() => deleteProfile()}>Eliminar</Button>
                     </Card.Body>
 
                 </Container>
