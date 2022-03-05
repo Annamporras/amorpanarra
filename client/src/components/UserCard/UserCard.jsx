@@ -32,7 +32,7 @@ const UserCard = ({ username, userlastname, email, role, phone, owner, _id }) =>
                 </Card.Body>
                 <Card.Body>
                     <Link className='btn btn-warning' to={`/perfiles/${_id}`}>Detalles</Link>
-                    <Button variant="danger" onClick={deleteProfile}>Eliminar</Button> 
+                    <Button variant="danger" onClick={() => deleteProfile()}>Eliminar</Button> 
                 </Card.Body>
             </Card>
 
