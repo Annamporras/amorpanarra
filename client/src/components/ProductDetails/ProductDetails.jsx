@@ -1,10 +1,16 @@
 import { Card, Button, Row, Col, Container } from 'react-bootstrap'
-
+import { Link } from 'react-router-dom'
+import { ProductsContext } from "../../context/Products.context"
+import { useContext } from 'react'
+import { AuthContext } from '../../context/Auth.context'
 
 
 const ProductDetails = ({ productDetails }) => {
 
-    const { name, description, image, ingredients, category, weight, glutenfree, featured } = productDetails
+    const { name, description, price, image, ingredients, category, weight, glutenfree, featured } = productDetails
+    const cartProduct = { name, price, image }
+    const { addToCart } = useContext(ProductsContext)
+    const { user } = useContext(AuthContext)
 
     return (
         <Container>
@@ -30,11 +36,20 @@ const ProductDetails = ({ productDetails }) => {
                     <Card.Text>Sin gluten: {glutenfree}</Card.Text>
                     <Card.Text>Peso: {weight}</Card.Text>
                     <Card.Text>Destacado: {featured}</Card.Text>
-                </Card.Body>
-            </Row>
-            <Card.Body>
+                    <Card.Text>Precio: {price} €</Card.Text>
+                    <Button variant="warning" onClick={() => addToCart(cartProduct)}>Agregar al carrito</Button>
+                    <Link to='/'>
+                        <Button className='btn btn-outline-warning' variant="light">Volver a la lista</Button>
+                    </Link>
 
-            </Card.Body>
+                </Card.Body>
+                {(user?.role === 'ADMIN') &&
+                    <Card.Body>
+                        <Button variant="warning" >Editar producto</Button>
+                        <Button variant="danger" >Eliminar producto</Button>
+                    </Card.Body>
+                }
+            </Row>
         </Container>
     )
 }
