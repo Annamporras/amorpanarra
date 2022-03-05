@@ -7,29 +7,33 @@ import './CartPage.css'
 const CartPage = () => {
 
     const { shoppingList } = useContext(ProductsContext)
-    console.log(shoppingList)
 
-    function totalSum() {
-        let resultSum = 0
+    let resultSum = 0
+    let shippingCost = 3.50
+    let count = 0
+
+    function itemCount() {
+        count += 1
+        return count
+    }
+
+    function subTotal() {
         shoppingList.map((elm) => {
             resultSum += elm.price
         })
         return resultSum.toFixed(2)
-
-
     }
-    function totalItemSum() {
-        let sum = 0
 
-        return sum += shoppingList.length
-    }
-    let shippingCost = 3.50
-    // esta operación no está bien :()
     function totalResult() {
-
-        return shippingCost += totalSum()
+        let total
+        total = shippingCost + resultSum
+        return total.toFixed(2)
     }
 
+    function emptyCart() {
+        shoppingList.length = 0
+        return shoppingList
+    }
 
     return (
 
@@ -47,7 +51,7 @@ const CartPage = () => {
                 {shoppingList.map(product => {
                     return <tbody>
                         <tr>
-                            <td>{shoppingList.length}</td>
+                            <td>{itemCount()}</td>
                             <td><img className='tableImage' src={product.image} /></td>
                             <td>{product.name}</td>
                             <td>{product.price}</td>
@@ -59,10 +63,10 @@ const CartPage = () => {
 
                 <tfoot>
                     <tr>
-                        <th>{totalItemSum()}</th>
+                        <th></th>
                         <th></th>
                         <th>Subtotal</th>
-                        <th>{totalSum()} €</th>
+                        <th>{subTotal()} €</th>
                     </tr>
                 </tfoot>
 
@@ -74,15 +78,15 @@ const CartPage = () => {
                         <tbody >
                             <tr>
                                 <td>Subtotal:</td>
-                                <td>{totalSum()} €</td>
+                                <td>{resultSum.toFixed(2)} €</td>
                             </tr>
                             <tr>
                                 <td>Gastos de envío:</td>
-                                <td>{shippingCost} €</td>
+                                <td>{shippingCost.toFixed(2)} €</td>
                             </tr>
                             <tr>
                                 <td>Total:</td>
-                                <td>{totalResult()} €</td>
+                                <td>{shoppingList.length === 0 ? '0.00' : totalResult()} €</td>
                             </tr>
 
                         </tbody>
@@ -94,6 +98,11 @@ const CartPage = () => {
                 <Col >
                     <Link to='/'>
                         <Button className='btn btn-outline-warning' variant="light" size='lg'>Seguir comprando</Button>
+                    </Link>
+                </Col>
+                <Col >
+                    <Link to='/'>
+                        <Button className='btn btn-outline-warning' variant="danger" size='lg' onClick={() => emptyCart()}>Vaciar carrito</Button>
                     </Link>
                 </Col>
                 <Col md={{ span: 3, offset: 3 }}>

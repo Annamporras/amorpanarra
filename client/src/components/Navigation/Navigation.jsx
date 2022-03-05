@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { AuthContext } from '../../context/Auth.context'
 import NewProductForm from '../NewProductForm/NewProductForm'
 import './Navigation.css'
+import ShoppingCart from '../ShoppingCart/ShoppingCart'
 
 
 
@@ -16,8 +17,6 @@ const Navigation = () => {
     const handleModalClose = () => setShowModal(false)
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
-
-
 
     return (
         <>
@@ -34,8 +33,8 @@ const Navigation = () => {
                     </NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        {(user?.role === 'ADMIN') &&
 
+                        {(user?.role === 'ADMIN') &&
                             <Nav className="me-auto">
                                 <Nav.Link as='span' onClick={handleModalOpen} style={{ cursor: 'pointer' }}>Crear Producto</Nav.Link>
                                 <NavLink to="/perfiles">
@@ -44,29 +43,23 @@ const Navigation = () => {
                             </Nav>
                         }
 
-
                         {!isLoggedIn ?
-
                             <>
                                 <NavLink className='ms-auto' to="/inicio-sesion">
                                     <Nav.Link as='span' >Mi cuenta</Nav.Link>
                                 </NavLink>
-
                             </>
                             :
                             <>
                                 <NavLink to={`/perfiles/${user?._id}`}>
                                     <Nav.Link as='span' >Hola {user?.username}!</Nav.Link>
                                 </NavLink>
-
-
                                 <Nav.Link as='span' onClick={logOutUser} style={{ cursor: 'pointer' }}>Cerrar sesión</Nav.Link>
                             </>
                         }
-
                         <NavLink to="/detalles-pedido">
                             <Nav.Link eventKey={2} as='span'>
-                                <img src='https://res.cloudinary.com/dabjtydsw/image/upload/v1646412222/Amor%20Panarra/shoppingcart_77968_lfokg5.png' />
+                                <ShoppingCart />
                             </Nav.Link>
                         </NavLink>
 
@@ -88,5 +81,3 @@ const Navigation = () => {
 }
 
 export default Navigation
-
-// 
