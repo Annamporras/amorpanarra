@@ -19,15 +19,18 @@ const HomePage = () => {
 
 
     return (
-        <section>
-            <Slider />
-            <Container className="catalog">
-                <h1>Productos</h1>
-                <hr />
-                {!products.length ? <LoadingSpinner /> : <ProductList products={products} />}
-            </Container>
-        </section>
+        <>
+            <section>
+                <Slider />
+                <Container className="catalog">
+                    <h1>Productos</h1>
+                    <hr />
+                    {!products.length ? <LoadingSpinner /> : <ProductList products={products} />}
+                </Container>
+            </section>
 
+            <br />
+        </>
     )
 
 }

@@ -48,7 +48,7 @@ const Navigation = () => {
                         {!isLoggedIn ?
 
                             <>
-                                <NavLink to="/inicio-sesion">
+                                <NavLink className='ms-auto' to="/inicio-sesion">
                                     <Nav.Link as='span' >Mi cuenta</Nav.Link>
                                 </NavLink>
 

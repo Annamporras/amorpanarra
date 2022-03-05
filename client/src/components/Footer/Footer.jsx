@@ -6,14 +6,14 @@ const Footer = () => {
 
     return (
         <footer>
-            <section className='subfooter'>
+            {/* <section className='subfooter'>
                 <ul >
                     <Link to='/nosotros'><li>SOBRE NOSOTROS</li></Link>
                     <br />
                     <Link to='/contacto'><li>CONTACTO</li></Link>
                 </ul>
 
-            </section>
+            </section> */}
 
 
             <section className='footerEnd' style={{ backgroundColor: 'rgb(179, 139, 10)' }}>

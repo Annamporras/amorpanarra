@@ -11,7 +11,11 @@ function ShoppingCart() {
     }, [shoppingList])
 
     return (
-        <div>{numberOfItems}</div>
+        <>
+
+            <div>{numberOfItems}</div>
+
+        </>
     )
 }
 
