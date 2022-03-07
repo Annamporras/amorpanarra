@@ -1,7 +1,7 @@
-import { Card, Button, Row, Col, Container } from 'react-bootstrap'
+import { Card, Container } from 'react-bootstrap'
 
 const UserDetails = ({ userDetails }) => {
-    const { username, userlastname, email, phone, address, role, _id } = userDetails
+    const { username, userlastname, email, phone, address, role} = userDetails
 
     return (
         <Container>
