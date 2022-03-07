@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { ProductsContext } from "../../context/Products.context"
 import { Container, Table, Button, Row, Col } from "react-bootstrap"
 import { Link } from 'react-router-dom'
@@ -6,28 +6,30 @@ import './CartPage.css'
 
 const CartPage = () => {
 
-    const { shoppingList } = useContext(ProductsContext)
+    const { shoppingList, deleteFromCart } = useContext(ProductsContext)
+    const [itemQuantity, setItemQuantity] = useState(1)
+    const [subTotal, setSubtotal] = useState(0)
+    const [total, setTotal] = useState(0)
 
-    let resultSum = 0
+    useEffect(() => {
+      getSubTotal()
+    }, [shoppingList, itemQuantity])
+
+    useEffect(() => {
+        getTotalResult()
+    }, [subTotal])
+    
     let shippingCost = 3.50
-    let count = 0
 
-    function itemCount() {
-        count += 1
-        return count
-    }
-
-    function subTotal() {
+    function getSubTotal() {
         shoppingList.map((elm) => {
-            resultSum += elm.price
+            setSubtotal(prevValue => prevValue + elm.price)
         })
-        return resultSum.toFixed(2)
+        setTotal(subTotal + shippingCost)
     }
 
-    function totalResult() {
-        let total
-        total = shippingCost + resultSum
-        return total.toFixed(2)
+    function getTotalResult() {
+        setTotal(subTotal + shippingCost)
     }
 
     function emptyCart() {
@@ -40,7 +42,7 @@ const CartPage = () => {
         <Container>
             <h1>Detalles de tu pedido</h1>
             <Table striped bordered hover>
-                <thead>
+                <thead >
                     <tr>
                         <th>#</th>
                         <th>Producto</th>
@@ -48,15 +50,22 @@ const CartPage = () => {
                         <th>Precio</th>
                     </tr>
                 </thead>
-                {shoppingList.map(product => {
-                    return <tbody>
-                        <tr>
-                            <td>{itemCount()}</td>
+                {shoppingList.map((product, idx) => {
+                    return <tbody key={shoppingList._id}>
+                        <tr >
+                            <td>{idx + 1}</td>
                             <td><img className='tableImage' src={product.image} /></td>
                             <td>{product.name}</td>
                             <td>{product.price}</td>
+                            <td>
+                                <Button variant="danger" onClick={() => setItemQuantity((countValue) => countValue - 1)}>-</Button>
+                                {itemQuantity}
+                                <Button variant="danger" onClick={() => setItemQuantity((countValue) => countValue + 1)}>+</Button>
+                            </td>
+                            <td>
+                                <Button variant="danger" onClick={() => deleteFromCart(product)}>Eliminar</Button>
+                            </td>
                         </tr>
-
                     </tbody>
                 })
                 }
@@ -66,7 +75,7 @@ const CartPage = () => {
                         <th></th>
                         <th></th>
                         <th>Subtotal</th>
-                        <th>{subTotal()} €</th>
+                        <th>{subTotal.toFixed(2)} €</th>
                     </tr>
                 </tfoot>
 
@@ -78,7 +87,7 @@ const CartPage = () => {
                         <tbody >
                             <tr>
                                 <td>Subtotal:</td>
-                                <td>{resultSum.toFixed(2)} €</td>
+                                <td>{subTotal.toFixed(2)} €</td>
                             </tr>
                             <tr>
                                 <td>Gastos de envío:</td>
@@ -86,7 +95,7 @@ const CartPage = () => {
                             </tr>
                             <tr>
                                 <td>Total:</td>
-                                <td>{shoppingList.length === 0 ? '0.00' : totalResult()} €</td>
+                                <td>{shoppingList.length === 0 ? '0.00' : total.toFixed(2)} €</td>
                             </tr>
 
                         </tbody>

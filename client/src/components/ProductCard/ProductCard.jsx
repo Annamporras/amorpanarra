@@ -7,7 +7,7 @@ import { useContext } from 'react'
 
 const ProductCard = ({ name, image, price, glutenfree, _id }) => {
 
-    const cartProduct = { name, price, image }
+    const cartProduct = { name, price, image, _id }
     const { addToCart } = useContext(ProductsContext)
 
     return (
