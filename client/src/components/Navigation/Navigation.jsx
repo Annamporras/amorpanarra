@@ -51,7 +51,7 @@ const Navigation = () => {
                             </>
                             :
                             <>
-                                <NavLink to={`/perfiles/${user?._id}`}>
+                                <NavLink className='ms-auto' to={`/perfiles/${user?._id}`}>
                                     <Nav.Link as='span' >Hola {user?.username}!</Nav.Link>
                                 </NavLink>
                                 <Nav.Link as='span' onClick={logOutUser} style={{ cursor: 'pointer' }}>Cerrar sesión</Nav.Link>

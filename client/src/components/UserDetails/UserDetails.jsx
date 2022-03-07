@@ -1,7 +1,7 @@
 import { Card, Container } from 'react-bootstrap'
 
 const UserDetails = ({ userDetails }) => {
-    const { username, userlastname, email, phone, address, role} = userDetails
+    const { username, userlastname, email, phone, address, role } = userDetails
 
     return (
         <Container>

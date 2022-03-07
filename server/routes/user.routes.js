@@ -27,6 +27,7 @@ router.get('/getOneUser/:user_id', (req, res) => {
 router.put('/edit/:user_id', (req, res) => {
     const { user_id } = req.params
     const { username, userlastname, email, phone, name, number, postCode, city, country } = req.body
+    console.log(req.body)
 
     const address = {
         street: {

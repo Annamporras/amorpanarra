@@ -7,10 +7,11 @@ import { AuthContext } from '../../context/Auth.context'
 
 const ProductDetails = ({ productDetails }) => {
 
-    const { name, description, price, image, ingredients, category, weight, glutenfree, featured } = productDetails
+    const { name, description, price, image, ingredients, category, weight, glutenfree, featured, _id } = productDetails
     const cartProduct = { name, price, image }
     const { addToCart } = useContext(ProductsContext)
     const { user } = useContext(AuthContext)
+
 
     return (
         <Container>
@@ -45,7 +46,9 @@ const ProductDetails = ({ productDetails }) => {
                 </Card.Body>
                 {(user?.role === 'ADMIN') &&
                     <Card.Body>
-                        <Button variant="warning" >Editar producto</Button>
+                        <Link to={`/productos/editar/${_id}`}>
+                            <Button variant="warning" >Editar producto</Button>
+                        </Link>
                         <Button variant="danger" >Eliminar producto</Button>
                     </Card.Body>
                 }

@@ -7,6 +7,7 @@ import UserDetailsPage from '../pages/UserDetailsPage/UserDetailsPage'
 import CartPage from '../pages/CartPage/CartPage'
 import PaymentPage from '../pages/PaymentPage/PaymentPage'
 import EditUserForm from '../components/EditUserForm/EditUserForm'
+import EditProductForm from '../components/EditProductForm/EditProductForm'
 
 const AppRoutes = () => {
 
@@ -19,6 +20,8 @@ const AppRoutes = () => {
             <Route path='/inicio-sesion' element={<AuthPage />} />
 
             <Route path='/productos/:product_id' element={<ProductDetailsPage />} />
+
+            <Route path='/productos/editar/:product_id' element={<EditProductForm />} />
 
             <Route path='/perfiles' element={<UsersListPage />} />
 
