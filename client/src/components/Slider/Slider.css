@@ -5,3 +5,12 @@
 height: 580px;
 object-fit: cover;
 }
+
+.letterSize h1 {
+    font-weight: 900;
+    
+}
+
+.letterSize h5 {
+    font-weight: 900;
+}
