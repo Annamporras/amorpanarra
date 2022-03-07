@@ -6,9 +6,10 @@ import { AuthContext } from '../../context/Auth.context'
 
 
 const ProductDetails = ({ productDetails }) => {
+    console.log(productDetails)
 
-    const { name, description, price, image, ingredients, category, weight, glutenfree, featured } = productDetails
-    const cartProduct = { name, price, image }
+    const { name, description, price, image, ingredients, category, weight, glutenfree, featured, _id } = productDetails
+    const cartProduct = { name, price, image, _id }
     const { addToCart } = useContext(ProductsContext)
     const { user } = useContext(AuthContext)
 
