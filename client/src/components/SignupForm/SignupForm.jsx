@@ -10,18 +10,16 @@ const SignupForm = () => {
 
     const [signupData, setSignupData] = useState({
         username: '',
+        userlastname: '',
         email: '',
         password: '',
         phone: '',
-        address: {
-            street: {
-                name: '',
-                number: ''
-            },
-            postCode: '',
-            city: '',
-            country: ''
-        }
+        name: '',
+        number: '',
+        postCode: '',
+        city: '',
+        country: ''
+
     })
     const navigate = useNavigate()
     const { username, userlastname, email, password, phone, name, number, postCode, city, country } = signupData
@@ -41,20 +39,30 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(({ data }) => {
+            .then(() => {
                 setShowMessage(true)
                 setMessageInfo({ title: 'Perfecto!', desc: 'Te has registrado correctamente. Por favor inicia sesión' })
+                setSignupData({
+                    username: '',
+                    userlastname: '',
+                    email: '',
+                    password: '',
+                    phone: '',
+                    name: '',
+                    number: '',
+                    postCode: '',
+                    city: '',
+                    country: ''
+                })
                 navigate('/inicio-sesion')
             })
             .catch(err => console.log(err))
     }
 
 
-
     return (
         <Card>
             <Container>
-
                 <Form onSubmit={handleSubmit}>
                     <Row>
                         <Col>
@@ -79,20 +87,20 @@ const SignupForm = () => {
                         <Form.Control type='password' value={password} onChange={handleInputChange} name='password' />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="phone" >
-                        <Form.Label>Phone:</Form.Label>
+                        <Form.Label>Teléfono:</Form.Label>
                         <Form.Control type='number' value={phone} onChange={handleInputChange} name='phone' />
                     </Form.Group>
                     <Row> <h5>Dirección:</h5>
                         <Col>
                             <Form.Group className="mb-3" controlId="name" >
                                 <Form.Label>Calle:</Form.Label>
-                                <Form.Control type="text" value={name || ''} onChange={handleInputChange} name='name' />
+                                <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
                             </Form.Group>
                         </Col>
                         <Col>
                             <Form.Group className="mb-3" controlId="number" >
                                 <Form.Label>Número:</Form.Label>
-                                <Form.Control type="number" value={number || ''} onChange={handleInputChange} name='number' />
+                                <Form.Control type="number" value={number} onChange={handleInputChange} name='number' />
                             </Form.Group>
                         </Col>
                     </Row>
