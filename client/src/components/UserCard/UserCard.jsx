@@ -8,7 +8,7 @@ import './UserCard.css'
 const UserCard = ({ username, userlastname, email, role, _id }) => {
 
     const { setShowMessage, setMessageInfo } = useContext(MessageContext)
-console.log(_id)
+
     const deleteProfile = () => {
         usersService
             .deleteUser(_id)

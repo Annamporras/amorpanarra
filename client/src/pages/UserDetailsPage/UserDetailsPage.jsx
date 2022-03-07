@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react"
-import { useParams } from 'react-router-dom'
-import { Card, Button, Row, Col, Container } from 'react-bootstrap'
+import { Link, useParams } from 'react-router-dom'
+import { Card, Button, Container } from 'react-bootstrap'
 import usersService from "../../services/user.service"
 import { MessageContext } from "../../context/UserMessage.context"
 import UserDetails from "../../components/UserDetails/UserDetails"
@@ -42,7 +42,7 @@ const UserDetailsPage = () => {
                     <UserDetails userDetails={userDetails} />
 
                     <Card.Body>
-                        {/* BOTÓN DE EDITAR */}
+                        <Link to={`/perfiles/editar/${user_id}`}><Button variant="warning">Editar</Button></Link>
                         <Button variant="danger" onClick={() => deleteProfile()}>Eliminar</Button>
                     </Card.Body>
 
