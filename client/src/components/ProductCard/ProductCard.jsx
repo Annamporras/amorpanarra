@@ -28,7 +28,6 @@ const ProductCard = ({ name, image, price, glutenfree, _id }) => {
                 </Card.Body>
             </Card>
 
-
         </article>
     )
 }

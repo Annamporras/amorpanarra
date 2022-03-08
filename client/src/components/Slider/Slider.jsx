@@ -13,6 +13,7 @@ const Slider = () => {
                         <h5>Elaboramos todos nuestros productos con ingredientes ecológicos.</h5>
                     </Carousel.Caption>
                     <img
+
                         className="d-block w-100"
                         src="https://res.cloudinary.com/dabjtydsw/image/upload/v1646319946/Amor%20Panarra/slider1_pi9tnf.jpg"
                         alt="First slide"

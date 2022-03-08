@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom'
 import productService from "../../services/product.service"
-import { Card, Button, Row, Col, Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import ProductDetails from "../../components/ProductDetails/ProductDetails"
 
 
@@ -22,10 +22,6 @@ const ProductDetailsPage = () => {
 
     }, [])
 
-    // const addToCart = () => {
-    //     let cart = []
-    //     //función para agregar al Cart
-    // }
 
     return (
 
@@ -33,13 +29,10 @@ const ProductDetailsPage = () => {
 
             {!isloading &&
 
-                <Container className="prueba">
+                <Container>
 
                     <ProductDetails productDetails={productDetails} />
 
-                    {/* <Card.Body>
-                        <Button variant="warning" onClick={addToCart}>Agregar al carrito</Button>
-                    </Card.Body> */}
                 </Container>
             }
 

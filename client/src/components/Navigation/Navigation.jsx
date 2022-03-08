@@ -24,7 +24,7 @@ const Navigation = () => {
                 <Container>
                     <NavLink to="/">
                         <Navbar.Brand as='span'> <img
-                            src="../../images/Logo.png"
+                            src="https://res.cloudinary.com/dabjtydsw/image/upload/v1646242070/sljmoym4pjw4tt9ugyme.png"
                             width="100"
                             height="50"
                             className="d-inline-block align-top"

@@ -7,8 +7,8 @@ import UserDetailsPage from '../pages/UserDetailsPage/UserDetailsPage'
 import CartPage from '../pages/CartPage/CartPage'
 import PaymentPage from '../pages/PaymentPage/PaymentPage'
 import EditUserForm from '../components/EditUserForm/EditUserForm'
-import EditProductForm from '../components/EditProductForm/EditProductForm'
 import PrivateRoute from './PrivateRoute'
+import EditProductPage from '../pages/EditProductPage/EditProductPage'
 
 const AppRoutes = () => {
 
@@ -22,7 +22,7 @@ const AppRoutes = () => {
 
             <Route path='/productos/:product_id' element={<ProductDetailsPage />} />
 
-            <Route path='/productos/editar/:product_id' element={<EditProductForm />} />
+            <Route path='/productos/editar/:product_id' element={<EditProductPage />} />
 
             <Route path='/perfiles' element={<UsersListPage />} />
 
