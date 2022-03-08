@@ -16,8 +16,6 @@ const HomePage = () => {
         loadProducts()
     }, [])
 
-
-
     return (
         <>
             <section>
@@ -36,9 +34,3 @@ const HomePage = () => {
 }
 
 export default HomePage
-
-// {
-//     products.map(prod => {
-//         return (<h1>{prod.name}</h1>)
-//     })
-// }

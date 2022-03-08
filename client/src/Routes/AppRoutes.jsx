@@ -6,9 +6,10 @@ import UsersListPage from '../pages/UsersListPage/UsersListPage'
 import UserDetailsPage from '../pages/UserDetailsPage/UserDetailsPage'
 import CartPage from '../pages/CartPage/CartPage'
 import PaymentPage from '../pages/PaymentPage/PaymentPage'
-import EditUserForm from '../components/EditUserForm/EditUserForm'
 import PrivateRoute from './PrivateRoute'
 import EditProductPage from '../pages/EditProductPage/EditProductPage'
+import PrivateRoute from './PrivateRoute'
+import EditUserPage from '../pages/EditUserPage/EditUserPage'
 
 const AppRoutes = () => {
 
@@ -26,12 +27,11 @@ const AppRoutes = () => {
 
             <Route path='/perfiles' element={<UsersListPage />} />
 
-
             <Route path='/perfiles/:user_id' element={<PrivateRoute />} >
                 <Route path='' element={<UserDetailsPage />} />
             </Route>
 
-            <Route path='/perfiles/editar/:user_id' element={<EditUserForm />} />
+            <Route path='/perfiles/editar/:user_id' element={<EditUserPage />} />
 
             <Route path='/detalles-pedido' element={<CartPage />} />
 
