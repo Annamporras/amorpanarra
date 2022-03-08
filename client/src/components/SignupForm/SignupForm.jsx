@@ -44,6 +44,7 @@ const SignupForm = () => {
             .then(({ data }) => {
                 setShowMessage(true)
                 setMessageInfo({ title: 'Perfecto!', desc: 'Te has registrado correctamente. Por favor inicia sesión' })
+                
                 navigate('/inicio-sesion')
             })
             .catch(err => console.log(err))
